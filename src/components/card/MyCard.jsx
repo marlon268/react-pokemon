@@ -1,22 +1,33 @@
 import React from 'react';
-import { useCharacterInfo } from '../../hooks/useCharacterInfo';
+import { Grid } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { MyCardContent } from './MyCardContent';
 
-export const MyCard = ({ character }) => {
-   const { sprites } = useCharacterInfo(character.url);
+export const MyCard = () => {
+    const { store, storeInfo } = useSelector((state) => state.pokemons);
 
-   if (!sprites) {
-      console.log(sprites);
-      return <div>Cargando</div>;
-   }
-   console.log(sprites.other.dream_world.front_default);
-   return (
-      <div>
-         <h4>{character.name}</h4>
-         <img
-            style={{ width: 200 }}
-            src={sprites.other.dream_world.front_default}
-            alt={sprites.other.dream_world.front_default}
-         />
-      </div>
-   );
+    if (storeInfo.length < store.length) {
+        return <h1>Cargando...</h1>;
+    }
+
+    return (
+        <Grid container spacing={2}>
+            {store.map((pokemon, index) => {
+                return (
+                    <Grid
+                        key={index}
+                        container
+                        item
+                        xs={12}
+                        sm={6}
+                        lg={4}
+                        xl={3}
+                        justifyContent="center"
+                    >
+                        <MyCardContent item pokemon={pokemon} index={index} />
+                    </Grid>
+                );
+            })}
+        </Grid>
+    );
 };

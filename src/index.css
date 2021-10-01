@@ -1,5 +1,29 @@
 body {
-   margin: 0;
-   -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+label {
+    color: white;
+    font-size: 1.1rem;
+}
+
+progress {
+    -webkit-appearance: none;
+    width: 95%;
+    height: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+::-webkit-progress-bar {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-progress-value {
+    background: linear-gradient(
+        90deg,
+        rgb(255, 200, 0) 0%,
+        rgb(179, 0, 255) 100%
+    );
 }

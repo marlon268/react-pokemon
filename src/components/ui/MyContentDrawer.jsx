@@ -10,35 +10,50 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 
 export const MyContentDrawer = () => {
-   return (
-      <div>
-         <Toolbar>
-            <Typography variant="h6" color="initial">
-               PokeNav
-            </Typography>
-         </Toolbar>
-         <Divider />
-         <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-               <ListItem button key={text}>
-                  <ListItemIcon>
-                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-               </ListItem>
-            ))}
-         </List>
-         <Divider />
-         <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-               <ListItem button key={text}>
-                  <ListItemIcon>
-                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-               </ListItem>
-            ))}
-         </List>
-      </div>
-   );
+    return (
+        <div>
+            <Toolbar>
+                <Typography variant="h6" color="white">
+                    PokeNav
+                </Typography>
+                <img
+                    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/100.svg"
+                    alt="PokeBola"
+                    style={{ width: 40, marginLeft: 16 }}
+                />
+            </Toolbar>
+            <Divider />
+            <List>
+                {['Inbox', 'Starred', 'Send email', 'Drafts'].map(
+                    (text, index) => (
+                        <ListItem button key={text}>
+                            <ListItemIcon>
+                                {index % 2 === 0 ? (
+                                    <InboxIcon sx={{ color: 'white' }} />
+                                ) : (
+                                    <MailIcon sx={{ color: 'white' }} />
+                                )}
+                            </ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    )
+                )}
+            </List>
+            <Divider />
+            <List>
+                {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                    <ListItem button key={text}>
+                        <ListItemIcon>
+                            {index % 2 === 0 ? (
+                                <InboxIcon sx={{ color: 'white' }} />
+                            ) : (
+                                <MailIcon sx={{ color: 'white' }} />
+                            )}
+                        </ListItemIcon>
+                        <ListItemText primary={text} />
+                    </ListItem>
+                ))}
+            </List>
+        </div>
+    );
 };
